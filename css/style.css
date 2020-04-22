@@ -64,6 +64,11 @@ img {
     height: auto;
 }
 
+.section
+{
+    background-color: #1f1c1d;
+}
+
 .visually-hidden:not(:focus):not(:active) {
     position: absolute;
     overflow: hidden;
@@ -304,11 +309,6 @@ img {
     background-image: url("../img/arrowNext.svg");
 }
 
-
-.pets {
-    background-color: #1f1c1d;
-}
-
 .pets__tab-content-wrapper {
     width: 100%;
 }
@@ -328,8 +328,6 @@ img {
 }
 
 .pets__list {
-    margin: 0 auto;
-    padding: 0;
     list-style: none;
     text-align: center;
     display: flex;
@@ -337,8 +335,8 @@ img {
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 259px;
-    margin-bottom: 44px;
-    padding-right: 10px;
+    margin: 0 auto 44px;
+    padding: 0 10px 0 0;
 }
 
 .pets__item {
@@ -392,23 +390,7 @@ img {
 
 .pets__btn {
     margin: 0 auto 40px;
-    margin-bottom: 40px;
-    width: 200px;
-    font-family: "Roboto", "Arial", sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 16px;
-    color: #ffffff;
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid #a07b50;
-    background-color: transparent;
-    text-align: center;
-    text-decoration: none;
     padding: 18px;
-    transition: color 0.3s ease-out, border 0.3s ease-out;
 }
 
 .gallery {
@@ -476,10 +458,6 @@ img {
     height: 100%;
     object-fit: cover;
     object-position: center;
-}
-
-.breed-features {
-    background-color: #1f1c1d;
 }
 
 .breed-features__wrapper {
@@ -633,10 +611,6 @@ img {
     }
 }
 
-.advantages {
-    background-color: #151313;
-}
-
 .advantages__wrapper {
     padding-top: 83px;
     padding-bottom: 64px;
@@ -667,8 +641,8 @@ img {
     min-height: 301px;
     margin-right: 2.9%;
     margin-bottom: 2.9%;
-    padding-top: 19.8px;
-    padding-bottom: 19.8px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .advantages__item:last-of-type {
@@ -689,8 +663,14 @@ img {
     color: #ffffff;
     padding-top: 47px;
     padding-bottom: 16px;
-    transition: background-color 0.3s ease-out, fill 0.3s ease-out, stroke 0.3s ease-out;
+    transition: background-color 0.3s ease-out, fill 0.3s ease-out, stroke 0.3s ease-out, border-radius 0.3s ease-out;
     position: relative;
+}
+
+.advantages__link:hover {
+    background-color: #a07b50;
+    color: #1f1c1d;
+    border-radius: 15px;
 }
 
 .advantages__link--24hours::before,
@@ -722,9 +702,9 @@ img {
 }
 
 .advantages__link span {
-    display: block;  margin: 0 auto;
-    margin-bottom: 10px;
-    margin-top: 115px;  max-width: 233px;
+    display: block;
+    margin: 115px auto 10px;
+    width: 233px;
 }
 
 .show {
