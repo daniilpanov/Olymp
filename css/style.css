@@ -240,8 +240,14 @@ img {
     background-color: transparent;
     text-decoration: none;
     padding: 18px;
-    transition: color 0.3s ease-out, border 0.3s ease-out;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, border 0.3s ease-out;
     margin-bottom: 110px;
+}
+
+.header__btn:hover {
+    background-color: #a07b50;
+    color: #151313;
+    border: 1px solid #ffffff;
 }
 
 /* END of Шапка */
@@ -300,6 +306,7 @@ img {
     transition: opacity 0.3s ease-out;
 }
 
+.pets__tab:hover,
 .pets__tab--active {
     opacity: 1;
 }
@@ -539,6 +546,14 @@ img {
     line-height: 23px;
     color: #ffffff;
     position: relative;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, box-shadow 0.3s ease-out, border-radius 0.3s ease-out;
+}
+
+.breed-features__item:hover {
+    background-color: #a07b50;
+    color: #1f1c1d;
+    box-shadow: 0 0 0 10px #a07b50;
+    border-radius: 5px;
 }
 
 .breed-features__item::before {
