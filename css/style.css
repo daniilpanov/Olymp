@@ -123,6 +123,34 @@ img {
     color: #a07b50;
 }
 
+.see_more__btn {
+    text-align: center;
+    width: 200px;
+    font-family: "Roboto", "Arial", sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 14px;
+    color: #ffffff;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #a07b50;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 18px;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, border 0.3s ease-out, transform 0.3s ease-out;
+    margin-bottom: 110px;
+}
+
+.see_more__btn:hover {
+    background-color: #a07b50;
+    color: #151313;
+    border: 1px solid #ffffff;
+    transform: rotateZ(15deg) scale(1.5, 1.5);
+    z-index: 999;
+}
+
 /* END of Базовые стили */
 /* Шапка - название, логотип и основная информация */
 .header {
@@ -224,32 +252,6 @@ img {
     margin: 0 0 48px;
 }
 
-.header__btn {
-    text-align: center;
-    width: 200px;
-    font-family: "Roboto", "Arial", sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 14px;
-    color: #ffffff;
-    display: block;
-    overflow: hidden;
-    cursor: pointer;
-    border: 1px solid #a07b50;
-    background-color: transparent;
-    text-decoration: none;
-    padding: 18px;
-    transition: background-color 0.3s ease-out, color 0.3s ease-out, border 0.3s ease-out;
-    margin-bottom: 110px;
-}
-
-.header__btn:hover {
-    background-color: #a07b50;
-    color: #151313;
-    border: 1px solid #ffffff;
-}
-
 /* END of Шапка */
 /* Секция 1 - картинки с котами */
 .pets__tab-content-wrapper {
@@ -311,6 +313,31 @@ img {
     opacity: 1;
 }
 
+.pets__tab:hover::after {
+    content: "";
+    width: 100%;
+    display: block;
+    height: 0;
+    box-shadow: 0 0 0 2px #ffffff;
+    animation: multicolor__line 2s ease-out infinite;
+    margin-bottom: 0;
+    position: static;
+}
+
+@keyframes multicolor__line {
+    33.3% {
+        box-shadow: 0 0 0 2px #8B0000;
+    }
+
+    66.6% {
+        box-shadow: 0 0 0 2px #a07b50;
+    }
+
+    99.9% {
+        box-shadow: 0 0 0 2px #ffffff;
+    }
+}
+
 .pets__tab-content {
     display: none;
 }
@@ -350,7 +377,7 @@ img {
     margin-left: auto;
     margin-right: auto;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     list-style: none;
     padding: 0;
 }
@@ -361,8 +388,8 @@ img {
     height: 100%;
     z-index: 1;
     display: flex;
-    transition-property: transform;
     box-sizing: content-box;
+    overflow: visible;
 }
 
 .slider__slide {
@@ -370,7 +397,14 @@ img {
     width: 100%;
     height: 100%;
     position: relative;
-    transition-property: transform;
+    transition: transform 0.3s ease-out, z-index 0.3s ease-out, border-radius 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.slider__slide:hover {
+    transform: scale(1.25, 1.25);
+    z-index: 999;
+    border-radius: 15px;
+    box-shadow: 0 0 20px 15px #151313;
 }
 
 .slider__button {
@@ -419,12 +453,13 @@ img {
 
 @media (max-width: 1023px) {
     .gallery {
-        display: flex;
-        height: 495px;
+        display: grid;
         column-count: 1;
         column-gap: 0;
+        row-gap: 10px;
         margin-bottom: 56px;
         padding-left: 0;
+        align-items: center;
     }
 }
 
@@ -696,6 +731,21 @@ img {
     background-color: #a07b50;
     color: #1f1c1d;
     border-radius: 15px;
+    animation: advantages__link__anim 0.3s ease-out normal;
+}
+
+@keyframes advantages__link__anim {
+    0% {
+        transform: skew(0, 0);
+    }
+
+    50% {
+        transform: skew(15deg, 15deg);
+    }
+
+    100% {
+        transform: skew(0, 0);
+    }
 }
 
 .advantages__link--24hours::before,
