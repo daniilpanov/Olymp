@@ -1,3 +1,4 @@
+/* Шрифты */
 @font-face {
     font-family: "Roboto";
     src: url("../fonts/Robotolight.woff2"), url("../fonts/Robotolight.woff");
@@ -33,6 +34,8 @@
     font-style: normal;
 }
 
+/* END of Шрифты */
+/* "Общие" стили (стили родительских элементов секций) */
 html {
     box-sizing: border-box;
 }
@@ -55,6 +58,8 @@ body {
     background-color: #151313;
 }
 
+/* END of "Общие" стили */
+/* Базовые стили - стили, применяемые в нескольких секциях */
 a {
     text-decoration: none;
 }
@@ -82,6 +87,10 @@ img {
     clip-path: inset(100%);
 }
 
+.show {
+    display: block;
+}
+
 .container {
     position: relative;
     max-width: 1286px;
@@ -107,7 +116,6 @@ img {
     text-align: center;
 }
 
-
 .section__lead {
     margin: 0;
     font-family: "Roboto", "Arial", sans-serif;
@@ -119,7 +127,8 @@ img {
     color: #a07b50;
 }
 
-
+/* END of Базовые стили */
+/* Шапка - название, логотип и основная информация */
 .header {
     position: relative;
     background-color: #151313;
@@ -135,8 +144,6 @@ img {
     background-size: 630px auto;
     background-position: right 0 bottom 0;
 }
-
-
 
 .header__wrapper {
     margin: 0 auto;
@@ -237,85 +244,27 @@ img {
     background-color: transparent;
     text-decoration: none;
     padding: 18px;
-    transition: color 0.3s ease-out, border 0.3s ease-out;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, border 0.3s ease-out;
     margin-bottom: 110px;
 }
 
-
-.slider {
-    position: relative;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+.header__btn:hover {
+    background-color: #a07b50;
+    color: #151313;
+    border: 1px solid #ffffff;
 }
 
-.slider__container {
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    overflow: hidden;
-    list-style: none;
-    padding: 0;
-}
+/* END of Шапка */
 
-.slider__wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: flex;
-    transition-property: transform;
-    box-sizing: content-box;
-}
-
-.slider__slide {
-    flex-shrink: 0;
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transition-property: transform;
-}
-
-.slider__button {
-    z-index: 5;
-    display: block;
-    width: 14px;
-    height: 31px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-.slider__button::after {
-    display: none;
-}
-
-.slider__button--prev,
-.slider__button--next {
-    position: absolute;
-    top: 50%;
-}
-
-.slider__button--prev {
-    left: 0;
-    background-image: url("../img/arrowPrev.svg");
-}
-
-.slider__button--next {
-    right: 0;
-    background-image: url("../img/arrowNext.svg");
-}
-
-.pets__tab-content-wrapper {
-    width: 100%;
-}
+/* Секция 1 - картинки с котами */
 
 .pets__wrapper {
     padding-top: 223px;
     padding-bottom: 21px;
+}
+
+.pets__tab-content-wrapper {
+    width: 100%;
 }
 
 .pets__title {
@@ -363,6 +312,10 @@ img {
     transition: opacity 0.3s ease-out;
 }
 
+.pets__tab:hover {
+    opacity: 1;
+}
+
 .pets__tab--active {
     opacity: 1;
 }
@@ -393,6 +346,7 @@ img {
     padding: 18px;
 }
 
+/* Блок картинок в Секции 1 */
 .gallery {
     display: block;
     width: 100%;
@@ -460,6 +414,76 @@ img {
     object-position: center;
 }
 
+/* Слайды, содержащие плитки с картинками */
+.slider {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider__container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    overflow: hidden;
+    list-style: none;
+    padding: 0;
+}
+
+.slider__wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+
+.slider__slide {
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition-property: transform;
+}
+
+.slider__button {
+    z-index: 5;
+    display: block;
+    width: 14px;
+    height: 31px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.slider__button::after {
+    display: none;
+}
+
+.slider__button--prev,
+.slider__button--next {
+    position: absolute;
+    top: 50%;
+}
+
+.slider__button--prev {
+    left: 0;
+    background-image: url("../img/arrowPrev.svg");
+}
+
+.slider__button--next {
+    right: 0;
+    background-image: url("../img/arrowNext.svg");
+}
+
+/* END of Секция 1 */
+/* Секция 2 - Особенности породы Мейн-Кун */
 .breed-features__wrapper {
     position: relative;
     padding-top: 21px;
@@ -531,6 +555,14 @@ img {
     line-height: 23px;
     color: #ffffff;
     position: relative;
+    transition: background-color 0.3s ease-out, color 0.3s ease-out, box-shadow 0.3s ease-out, border-radius 0.3s ease-out;
+}
+
+.breed-features__item:hover {
+    background-color: #a07b50;
+    color: #1f1c1d;
+    box-shadow: 0 0 0 10px #a07b50;
+    border-radius: 5px;
 }
 
 .breed-features__item::before {
@@ -611,6 +643,8 @@ img {
     }
 }
 
+/* END of Секция 2 */
+/* Секция 3 - преимущества питомника */
 .advantages__wrapper {
     padding-top: 83px;
     padding-bottom: 64px;
@@ -707,6 +741,4 @@ img {
     width: 233px;
 }
 
-.show {
-    display: block;
-}
+/* END of Секция 3 */
