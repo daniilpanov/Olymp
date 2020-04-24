@@ -38,6 +38,7 @@
 /* "Общие" стили (стили родительских элементов секций) */
 html {
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 *,
@@ -56,6 +57,7 @@ body {
     font-weight: 400;
     color: #ffffff;
     background-color: #151313;
+    overflow-x: hidden;
 }
 
 /* END of "Общие" стили */
@@ -143,7 +145,8 @@ img {
     margin-bottom: 110px;
 }
 
-.see_more__btn:hover {
+.see_more__btn:hover,
+.see_more__btn:active {
     background-color: #a07b50;
     color: #151313;
     border: 1px solid #ffffff;
@@ -306,14 +309,23 @@ img {
     cursor: pointer;
     opacity: 0.5;
     transition: opacity 0.3s ease-out;
+    text-shadow: 0 0 2px #ffffff;
 }
 
 .pets__tab:hover,
+.pets__tab:active,
 .pets__tab--active {
     opacity: 1;
 }
 
-.pets__tab:hover::after {
+.pets__tab:hover,
+.pets__tab:active {
+    box-shadow: none !important;
+    animation: multicolor__line 2s ease-out infinite;
+}
+
+.pets__tab:hover::after,
+.pets__tab:active::after {
     content: "";
     width: 100%;
     display: block;
@@ -321,20 +333,25 @@ img {
     box-shadow: 0 0 0 2px #ffffff;
     animation: multicolor__line 2s ease-out infinite;
     margin-bottom: 0;
-    position: static;
 }
 
 @keyframes multicolor__line {
     33.3% {
         box-shadow: 0 0 0 2px #8B0000;
+        color: #8B0000;
+        text-shadow: none;
     }
 
     66.6% {
         box-shadow: 0 0 0 2px #a07b50;
+        color: #a07b50;
+        text-shadow: 0 0 5px #976850;
     }
 
     99.9% {
         box-shadow: 0 0 0 2px #ffffff;
+        color: #ffffff;
+        text-shadow: 0 0 10px #dadaff;
     }
 }
 
@@ -397,14 +414,29 @@ img {
     width: 100%;
     height: 100%;
     position: relative;
-    transition: transform 0.3s ease-out, z-index 0.3s ease-out, border-radius 0.3s ease-out, box-shadow 0.3s ease-out;
+    transition: /*transform 0.3s ease-out, */z-index 0.3s ease-out, border-radius 0.3s ease-out, box-shadow 0.3s ease-out;
 }
 
-.slider__slide:hover {
-    transform: scale(1.25, 1.25);
+.slider__slide:hover, .slider__slide:active {
+    /*transform: scale(1.25, 1.25);*/
     z-index: 999;
     border-radius: 15px;
     box-shadow: 0 0 20px 15px #151313;
+    animation: slider__slide__anim 5s ease-in forwards;
+}
+
+@keyframes slider__slide__anim {
+    0% {
+        transform: scale(1, 1);
+    }
+
+    10% {
+        transform: scale(1.25, 1.25);
+    }
+
+    100% {
+        transform: scale(1.5, 1.5);
+    }
 }
 
 .slider__button {
