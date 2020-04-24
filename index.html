@@ -65,19 +65,19 @@
             <div class="pets__tab-content-wrapper">
                 <div class="pets__tab-content show slider" id="pets-tab-content-1">
                     <div class="pets__slider slider__list slider__container">
-                        <div class="gallery slider__wrapper">
-                            <div class="gallery__item gallery__item--top slider__slide">
-                                <img class="gallery__item-img gallery__item-img--top"
+                        <div class="slider__wrapper">
+                            <div class="slider__slide--top slider__slide">
+                                <img class="slider__slide-img slider__slide-img--top"
                                      src="img/pets-list-1-desktop@2x.png" width="518" height="382" alt="Мейн Кун">
                             </div>
 
-                            <div class="gallery__item gallery__item--bottom slider__slide">
-                                <img class="gallery__item-img gallery__item-img--bottom"
+                            <div class="slider__slide--bottom slider__slide">
+                                <img class="slider__slide-img slider__slide-img--bottom"
                                      src="img/pets-list-2-desktop@2x.png" width="518" height="241" alt="Мейн Кун">
                             </div>
 
-                            <div class="gallery__item gallery__item--large slider__slide slider__slide--active">
-                                <img class="gallery__item-img gallery__item-img--large"
+                            <div class="slider__slide--large slider__slide slider__slide--active">
+                                <img class="slider__slide-img slider__slide-img--large"
                                      src="img/pets-list-3-desktop@2x.png" width="471" height="485" alt="Мейн Кун">
                             </div>
                         </div>
@@ -116,6 +116,17 @@
                     </li>
                     <li class="breed-features__item breed-features__item--appearance">
                         Внешний вид этой кошки похож на дикую рысь
+                    </li>
+
+                    <!-- Поскольку before нельзя управлять в js, используем обычные элементы html класса for-size-metrics (см. script.js) -->
+
+                    <li class="breed-features__item breed-features__item--cohabitation for-size-metrics">
+                    </li>
+                    <li class="breed-features__item breed-features__item--instruction for-size-metrics">
+                    </li>
+                    <li class="breed-features__item breed-features__item--weight for-size-metrics">
+                    </li>
+                    <li class="breed-features__item breed-features__item--appearance for-size-metrics">
                     </li>
                 </ul>
             </div>
@@ -158,5 +169,5 @@
     </section>
 </main>
 </body>
-
+<script src="js/script.js"></script>
 </html>
