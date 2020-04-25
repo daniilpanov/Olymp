@@ -620,6 +620,7 @@ img {
     max-height: none !important;
     background-color: transparent;
     margin-top: 10px;
+    z-index: -9;
 
     position: absolute;
     transition: background-color 0.3s ease-out, color 0.1s ease-out, border-radius 0.3s ease-out;
