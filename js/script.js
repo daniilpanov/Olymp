@@ -47,17 +47,17 @@ function main() {
 
         // Нужно, чтобы :hover срабатывал на элементах (пустом и с текстом) синхронно
         el[0].addEventListener('mouseover', function (ev) {
-            elements[ev.originalTarget.i][1].className += " active";
+            elements[ev.target.i][1].className += " active";
         });
         el[1].addEventListener('mouseover', function (ev) {
-            elements[ev.originalTarget.i][0].className += " active";
+            elements[ev.target.i][0].className += " active";
         });
         el[0].addEventListener('mouseout', function (ev) {
-            elements[ev.originalTarget.i][1].className = elements[ev.originalTarget.i][1]
+            elements[ev.target.i][1].className = elements[ev.target.i][1]
                 .className.replace(" active", "");
         });
         el[1].addEventListener('mouseout', function (ev) {
-            elements[ev.originalTarget.i][0].className = elements[ev.originalTarget.i][0]
+            elements[ev.target.i][0].className = elements[ev.target.i][0]
                 .className.replace(" active", "");
         });
     }

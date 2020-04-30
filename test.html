@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Перевод из десятичной системы в любую другую</title>
+
+    <style>
+
+    </style>
+</head>
+<body>
+<form method="post">
+    <label for="number">Число: </label>
+    <input id="number" type="text" pattern="[0-9]+(\.[0-9]+)?" placeholder="Введите число...">
+
+    <label for="base">Основание: </label>
+    <input id="base" type="text" pattern="[0-9]+" placeholder="Введите основание системы счисления...">
+
+    <label for="q">Макс. кол-во знаков после запятой в результате: </label>
+    <input id="q" type="number" value="20">
+
+    <button id="GO">Перевести</button>
+</form>
+<div id="result">
+    <h3 id="task"></h3>
+
+    <h4 id="title"></h4>
+
+    <table id="int">
+        <tbody id="int-i"></tbody>
+    </table>
+    <div id="float">
+    </div>
+
+    <h4 id="res"></h4>
+</div>
+
+<script>
+    function del(n1, d)
+    {
+        var lost = n1 % d, nd = n1 - lost;
+        return [nd / d, lost, nd];
+    }
+
+    function getEl(id)
+    {
+        return document.getElementById(id);
+    }
+
+    var number = getEl("number"), base = getEl("base"),
+        go = getEl("GO"), q = getEl("q");
+
+    go.onclick = (function ()
+    {
+        getEl("task").innerHTML = getEl("title").innerHTML = number.value + "<sub>10</sub>";
+        getEl("task").innerHTML += "?<sub>" + base.value + "</sub>";
+
+        var d = Number.parseInt(base.value), res = "",
+            input = number.value.split(".");
+        // Вычисляем целое
+        var i = Number.parseInt(input[0]), arr, int = getEl("int-i"),
+            elarr = [null, null, null, base.value];
+
+        while (del(i, d)[0] > 0)
+        {
+            int.innerHTML += "<tr>";
+            arr = del(i, d);
+
+            res = arr[1].toString() + res;
+            i = arr[0];
+            int.innerHTML += "</tr>";
+        }
+
+        res = "1" + res + ".";
+
+        // Вычисляем дробное
+        i = Number.parseFloat("0." + input[1]);
+
+        for (var j = 0, ok = false; j < Number.parseInt(q.value) && !ok; j ++)
+        {
+            i *= d;
+            res += i.toString().substr(0, 1);
+            i = Number.parseFloat("0" + i.toString().substr(1));
+
+            if (i == 0)
+                ok = true;
+        }
+
+        if (!ok)
+            res += "...";
+
+        getEl("res").innerHTML = res;
+
+        return false;
+    });
+</script>
+</body>
+</html>
