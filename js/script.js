@@ -1,69 +1,51 @@
-// Не знаю, можно ли было реализовать это в css, но... теперь это уже не важно))
-// Итак, этот скрипт предназначем для того, чтобы при переполнении контента элементов класса breed-features__item,
-// эти эдементы не сдвигались. Они не расширяются, расширяются пустые элементы с теми же свойствами, что и у них
-function main() {
-    // Поскольку у пустых элементов те же классы, получаем и пустые элементы, и элементы с текстом
-    // Таким образом, получается массив
-    // elements = [[<cohabitation>, <cohabitation_empty>], [<instruction>, <instruction_empty>], и т.д....]
-    var elements = [
-        document.getElementsByClassName("breed-features__item--cohabitation"),
-        document.getElementsByClassName("breed-features__item--instruction"),
-        document.getElementsByClassName("breed-features__item--weight"),
-        document.getElementsByClassName("breed-features__item--appearance")
-    ];
+/// ЭТОТ СКРИПТ АДАПТИРУЕТ СЕКЦИЮ 'BREED-FEATURES' К УСТРОЙСТВАМ С МАЛЕНЬКИМ ЭКРАНОМ (min-width: 390px)
+/// Он пропорционально сдвигает "особенности породы", чтобы они не "улетали" с круга
 
-    // Перебираем массив и для каждого элемента делаем следующее
-    for (var i in elements) {
-        if (!elements.hasOwnProperty(i))
-            continue;
+// Функция для получения HTML-элемента, содержащего "особенность породы"
+function elem(item) {
+    return document.getElementsByClassName("breed-features__item--" + item)[0];
+}
 
-        // Записываем элемент в переменную
-        var el = elements[i];
+// Получаем "особенности"
+var coh = elem("cohabitation"),
+    ins = elem("instruction"),
+    wt = elem("weight"),
+    app = elem("appearance");
+// Вычисляем коэфициенты сдвига
+// Обратите внимание: в i_prop и w_prop коэфициент обратной пропорциональности
+var c_prop = [-265 / 715, -290 / 615, -290 / 615],
+    i_prop = [-275 * 715, -215 * 615, -180 * 465],
+    w_prop = [-240 * 715, -165 * 615, -140 * 615],
+    a_prop = [-250 / 715, -300 / 615, -300 / 615],
+    i; // переменная, использующаяся как ключ массива
 
-        // Нужно измерить, сколько пространства будет занимать текст
-        el[1].innerHTML = el[0].innerHTML;
-        // записываем результаты...
-        var additional_height = el[1].clientHeight - el[0].clientHeight;
-
-        // Далее возвращаемся к исходному виду пустых элементов
-        el[1].innerHTML = "";
-        // и добавляем необходимые стили, чтобы текст, выходящий за пределы предшествующих блоков, был "на" пустых блоках.
-        // Таким образом кажется, что увеличиваются блоки, в которых содержится текст,
-        // но на самом деле увеличиваются эти, а не те. Надеюсь, Вы хотя бы примерно меня поняли))
-
-        // Ширина...
-        el[1].style.maxWidth
-            = el[1].style.width
-            = (el[0].clientWidth + 20).toString() + "px";
-        // Высота...
-        el[1].style.height = additional_height.toString() + "px";
-        // Позиция...
-        el[1].style.top = (el[0].offsetTop + el[0].clientHeight).toString() + "px";
-        el[1].style.left = (el[0].offsetLeft - 10).toString() + "px";
-
-        // Записываем в свойство индекс элемента, чтобы была возможность получить этот элемент из функции (см. ниже)
-        el[0].i = i;
-        el[1].i = i;
-
-        // Нужно, чтобы :hover срабатывал на элементах (пустом и с текстом) синхронно
-        el[0].addEventListener('mouseover', function (ev) {
-            elements[ev.target.i][1].className += " active";
-        });
-        el[1].addEventListener('mouseover', function (ev) {
-            elements[ev.target.i][0].className += " active";
-        });
-        el[0].addEventListener('mouseout', function (ev) {
-            elements[ev.target.i][1].className = elements[ev.target.i][1]
-                .className.replace(" active", "");
-        });
-        el[1].addEventListener('mouseout', function (ev) {
-            elements[ev.target.i][0].className = elements[ev.target.i][0]
-                .className.replace(" active", "");
-        });
+// Сам процесс сдвига
+function shift() {
+    if (window.innerWidth <= 715) {
+        // Выбираем нужный ключ массива
+        if (window.innerWidth <= 465) {
+            i = 2;
+        } else if (window.innerWidth <= 615) {
+            i = 1;
+        } else {
+            i = 0;
+        }
+        // И сдвигаем элементы
+        coh.style.left = (c_prop[i] * window.innerWidth).toString() + "px";
+        ins.style.right = (i_prop[i] / window.innerWidth).toString() + "px";
+        wt.style.right = (w_prop[i] / window.innerWidth).toString() + "px";
+        app.style.left = (a_prop[i] * window.innerWidth).toString() + "px";
+    } else {
+        // Если не нужно ничего сдвигать - обнуляем позицию,
+        // и возвращаем элементам изначальные стили
+        coh.style.left = "";
+        ins.style.right = "";
+        wt.style.right = "";
+        app.style.left = "";
     }
 }
 
-// Наконец, вызываем функцию
-main();
-// При изменении размера экрана всё может съехать, поэтому нужно всё перерасчитать
-window.onresize = main;
+// Вызываем функцию сдвига
+shift();
+// Вызываем её при любом изменении размера окна браузера
+window.onresize = shift;

@@ -424,6 +424,7 @@ img {
 .slider__wrapper {
     position: relative;
     width: 100%;
+    max-height: 495px;
     z-index: 1;
     box-sizing: content-box;
     overflow: visible;
@@ -438,6 +439,7 @@ img {
 
 @media (max-width: 1023px) {
     .slider__wrapper {
+        max-height: none !important;
         display: grid;
         column-count: 1;
         column-gap: 0;
@@ -615,7 +617,6 @@ img {
 }
 
 .breed-features__item {
-    max-height: 42px;
     overflow-y: visible;
     font-family: "Roboto", "Arial", sans-serif;
     font-style: normal;
@@ -623,7 +624,7 @@ img {
     font-size: 16px;
     line-height: 23px;
     color: #ffffff;
-    position: relative;
+    position: absolute;
     box-shadow: 0 0 0 10px transparent;
     transition: background-color 0.3s ease-out, box-shadow 0.3s ease-out, color 0.3s ease-out, border-radius 0.3s ease-out;
     z-index: 999;
@@ -634,30 +635,7 @@ img {
     background-color: #a07b50;
     color: #1f1c1d;
     box-shadow: 0 0 0 10px #a07b50;
-    border-radius: 5px 5px 0 0;
-}
-
-.for-size-metrics {
-    min-height: 20px !important;
-    max-height: none !important;
-    background-color: transparent;
-    margin-top: 10px;
-    z-index: -9;
-
-    position: absolute;
-    transition: background-color 0.3s ease-out, color 0.1s ease-out, border-radius 0.3s ease-out;
-}
-
-.for-size-metrics:hover,
-.for-size-metrics.active {
-    background-color: #a07b50;
-    color: #1f1c1d;
-    border-radius: 0 0 15px 15px !important;
-    box-shadow: none !important;
-}
-
-.for-size-metrics::before {
-    display: none;
+    border-radius: 5px;
 }
 
 .breed-features__item::before {
@@ -674,7 +652,7 @@ img {
     font-size: 14px;
     line-height: 21px;
     top: 343px;
-    left: -409px;
+    left: -540px;
     max-width: 255px;
     text-align: right;
 }
@@ -684,8 +662,8 @@ img {
 }
 
 .breed-features__item--instruction {
-    top: 411px;
-    right: -482px;
+    top: 455px;
+    right: -555px;
     max-width: 201px;
 }
 
@@ -695,8 +673,8 @@ img {
 }
 
 .breed-features__item--weight {
-    top: 584px;
-    right: -444px;
+    top: 665px;
+    right: -480px;
     max-width: 160px;
 }
 
@@ -707,48 +685,13 @@ img {
 
 .breed-features__item--appearance {
     max-width: 200px;
-    top: 495px;
-    left: -370px;
+    top: 650px;
+    left: -485px;
     text-align: right;
 }
 
 .breed-features__item--appearance::before {
     right: -31px;
-}
-
-@media (max-width: 1170px) {
-    .breed-features__item {
-        max-height: 64px !important;
-    }
-
-    .breed-features__item--cohabitation {
-        left: -368px !important;
-        max-width: 167px !important;
-    }
-    .breed-features__item--cohabitation::before {
-        right: -52px !important;
-    }
-    .breed-features__item.for-size-metrics {
-        width: 100%;
-    }
-
-    .breed-features__item--instruction {
-        right: -442px;
-        max-width: 132px;
-    }
-
-    .breed-features__item--weight {
-        right: -385px;
-        max-width: 110px;
-    }
-    .breed-features__item--weight::before {
-        left: -33px;
-    }
-
-    .breed-features__item--appearance {
-        left: -335px;
-        max-width: 140px;
-    }
 }
 
 /* END of Секция 2 */

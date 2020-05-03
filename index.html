@@ -10,9 +10,12 @@
 
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/breed-features--mobile-adapting.css">
 </head>
 <!-- ====== BODY ====== -->
 <body>
+<button onclick="alert(window.innerWidth);return false;" style="z-index: 999;position: fixed;left: 0;right: 0;background-color: #8B0000">
+    Real width</button>
 <!-- Заранее создаём SVG-иконку (корону), чтобы использовать её <u>ниже</u> -->
 <div style="display: none;">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -117,16 +120,6 @@
                     <li class="breed-features__item breed-features__item--appearance">
                         Внешний вид этой кошки похож на дикую рысь
                     </li>
-
-                    <!-- Поскольку before нельзя управлять в js, используем обычные элементы html класса for-size-metrics (см. script.js) -->
-                    <li class="breed-features__item breed-features__item--cohabitation for-size-metrics">
-                    </li>
-                    <li class="breed-features__item breed-features__item--instruction for-size-metrics">
-                    </li>
-                    <li class="breed-features__item breed-features__item--weight for-size-metrics">
-                    </li>
-                    <li class="breed-features__item breed-features__item--appearance for-size-metrics">
-                    </li>
                 </ul>
             </div>
         </div>
@@ -167,6 +160,6 @@
         </div>
     </section>
 </main>
-</body>
 <script src="js/script.js"></script>
+</body>
 </html>

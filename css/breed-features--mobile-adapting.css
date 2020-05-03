@@ -1,0 +1,229 @@
+@media (max-width: 1090px) {
+    .breed-features__item--cohabitation {
+        max-width: 167px;
+        left: -450px;
+    }
+
+    .breed-features__item--instruction {
+        max-width: 150px;
+        right: -505px;
+    }
+}
+
+@media (max-width: 1016px) {
+    .breed-features__item--cohabitation {
+        top: 370px;
+        left: -465px;
+        max-width: 167px;
+    }
+    .breed-features__item--cohabitation::before {
+        right: -52px;
+    }
+
+    .breed-features__item--instruction {
+        top: 465px;
+        right: -505px;
+        max-width: 132px;
+    }
+
+    .breed-features__item--weight {
+        top: 680px;
+        right: -430px;
+        max-width: 110px;
+    }
+    .breed-features__item--weight::before {
+        left: -33px;
+    }
+
+    .breed-features__item--appearance {
+        top: 665px;
+        left: -430px;
+        max-width: 140px;
+    }
+}
+
+@media (max-width: 970px) {
+    .breed-features__item {
+        font-size: 12px;
+    }
+
+    .breed-features__item--cohabitation {
+        top: 450px;
+        left: -365px;
+    }
+    .breed-features__item--cohabitation::before {
+        right: 60px;
+        top: -50px;
+    }
+
+    .breed-features__item--instruction {
+        top: 525px;
+        right: -405px;
+    }
+    .breed-features__item--instruction::before {
+        top: -40px;
+        left: 65px;
+    }
+
+    .breed-features__item--weight {
+        top: 720px;
+        right: -370px;
+    }
+    .breed-features__item--weight::before {
+        top: -35px;
+        left: 30px;
+    }
+
+    .breed-features__item--appearance {
+        top: 720px;
+        left: -330px;
+    }
+    .breed-features__item--appearance::before {
+        top: -30px;
+        right: 60px;
+    }
+}
+
+@media (max-width: 776px) {
+    .breed-features__image {
+        text-align: center;
+    }
+    .breed-features__image::before {
+        width: 375px;
+        height: 375px;
+
+        top: 70px;
+        left: 90px;
+    }
+    .breed-features__image::after {
+        width: 412px;
+        height: 412px;
+
+        top: 49px;
+        left: 75px;
+    }
+    .breed-features__image img {
+        width: 400px;
+        height: 435px;
+    }
+
+    .breed-features__item--cohabitation {
+        top: 375px;
+        left: -265px;
+    }
+    .breed-features__item--instruction {
+        top: 445px;
+        right: -275px;
+    }
+    .breed-features__item--weight {
+        top: 610px;
+        right: -230px;
+    }
+    .breed-features__item--appearance {
+        top: 550px;
+        left: -245px;
+    }
+}
+
+@media (max-width: 715px) {
+    .breed-features__item--cohabitation {
+        top: 415px;
+        left: -265px;
+    }
+    .breed-features__item--instruction {
+        top: 485px;
+        right: -275px;
+    }
+    .breed-features__item--weight {
+        top: 630px;
+        right: -240px;
+    }
+    .breed-features__item--appearance {
+        top: 570px;
+        left: -250px;
+    }
+}
+
+@media (max-width: 615px) {
+    .breed-features__lead {
+        height: 160px;
+    }
+    .breed-features__image {
+        transform: translateX(50px);
+        text-align: left;
+    }
+    .breed-features__image::before {
+        width: 281px;
+        height: 281px;
+
+        top: 70px;
+        left: -5px;
+    }
+    .breed-features__image::after {
+        width: 325px;
+        height: 325px;
+
+        top: 50px;
+        left: -29px;
+    }
+    .breed-features__image img {
+        width: 300px;
+        height: 326px;
+    }
+
+    .breed-features__item--cohabitation {
+        top: 425px;
+        left: -290px;
+        max-width: 150px;
+    }
+    .breed-features__item--instruction {
+        top: 465px;
+        right: -210px;
+        max-width: 200px;
+    }
+    .breed-features__item--weight {
+        top: 560px;
+        right: -150px;
+    }
+    .breed-features__item--appearance {
+        top: 550px;
+        left: -300px;
+    }
+}
+
+@media (max-width: 495px) {
+    .breed-features__item--cohabitation {
+        top: 475px;
+        left: -290px;
+        max-width: 150px;
+    }
+    .breed-features__item--instruction {
+        top: 510px;
+        right: -215px;
+        max-width: 200px;
+    }
+    .breed-features__item--weight {
+        top: 607px;
+        right: -165px;
+    }
+    .breed-features__item--appearance {
+        top: 600px;
+        left: -300px;
+    }
+}
+
+@media (max-width: 465px) {
+    .breed-features__item--instruction {
+        max-width: 100px;
+        right: -180px;
+    }
+
+    .breed-features__item--weight {
+        top: 615px;
+        right: -140px;
+    }
+    .breed-features__item--weight::before {
+        top: -10px;
+        left: 50px;
+    }
+}
